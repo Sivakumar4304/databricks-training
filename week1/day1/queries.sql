@@ -150,3 +150,100 @@ GROUP BY department_id;
 SELECT department_id, AVG(salary) AS average_salary
 FROM Employee
 GROUP BY department_id;
+
+
+-- =========================================
+-- Group By Queries
+-- =========================================
+
+-- Question 21:
+-- Select the total salary for each department.
+
+SELECT department_id, SUM(salary) AS total_salary
+FROM Employee
+GROUP BY department_id;
+
+
+-- Question 22:
+-- Select the average age of employees in each department.
+
+SELECT department_id, AVG(age) AS average_age
+FROM Employee
+GROUP BY department_id;
+
+
+-- Question 23:
+-- Select the number of employees hired in each year.
+
+SELECT YEAR(hire_date) AS hire_year,
+COUNT(*) AS employee_count
+FROM Employee
+GROUP BY YEAR(hire_date);
+
+
+-- Question 24:
+-- Select the highest salary in each department.
+
+SELECT department_id, MAX(salary) AS highest_salary
+FROM Employee
+GROUP BY department_id;
+
+
+-- Question 25:
+-- Select the department with the highest average salary.
+
+SELECT department_id, AVG(salary) AS avg_salary
+FROM Employee
+GROUP BY department_id
+ORDER BY avg_salary DESC
+LIMIT 1;
+
+
+-- =========================================
+-- Having Queries
+-- =========================================
+
+-- Question 26:
+-- Select departments with more than 2 employees.
+
+SELECT department_id, COUNT(*) AS employee_count
+FROM Employee
+GROUP BY department_id
+HAVING COUNT(*) > 2;
+
+
+-- Question 27:
+-- Select departments with an average salary greater than 55000.
+
+SELECT department_id, AVG(salary) AS avg_salary
+FROM Employee
+GROUP BY department_id
+HAVING AVG(salary) > 55000;
+
+
+-- Question 28:
+-- Select years with more than 1 employee hired.
+
+SELECT YEAR(hire_date) AS hire_year,
+COUNT(*) AS employee_count
+FROM Employee
+GROUP BY YEAR(hire_date)
+HAVING COUNT(*) > 1;
+
+
+-- Question 29:
+-- Select departments with a total salary expense less than 100000.
+
+SELECT department_id, SUM(salary) AS total_salary
+FROM Employee
+GROUP BY department_id
+HAVING SUM(salary) < 100000;
+
+
+-- Question 30:
+-- Select departments with the maximum salary above 75000.
+
+SELECT department_id, MAX(salary) AS max_salary
+FROM Employee
+GROUP BY department_id
+HAVING MAX(salary) > 75000;
