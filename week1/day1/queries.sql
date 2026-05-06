@@ -71,3 +71,82 @@ WHERE LENGTH(name) = 9;
 
 SELECT * FROM Employee
 WHERE name LIKE '_o%';
+
+-- =========================================
+-- Date Queries
+-- =========================================
+
+-- Question 11:
+-- Select employees hired in the year 2020.
+
+SELECT * FROM Employee
+WHERE YEAR(hire_date) = 2020;
+
+
+-- Question 12:
+-- Select employees hired in January of any year.
+
+SELECT * FROM Employee
+WHERE MONTH(hire_date) = 1;
+
+
+-- Question 13:
+-- Select employees hired before 2019.
+
+SELECT * FROM Employee
+WHERE hire_date < '2019-01-01';
+
+
+-- Question 14:
+-- Select employees hired on or after March 1, 2021.
+
+SELECT * FROM Employee
+WHERE hire_date >= '2021-03-01';
+
+
+-- Question 15:
+-- Select employees hired in the last 2 years.
+
+SELECT * FROM Employee
+WHERE hire_date >= DATE_SUB(CURDATE(), INTERVAL 2 YEAR);
+
+
+-- =========================================
+-- Aggregate Queries
+-- =========================================
+
+-- Question 16:
+-- Select the total salary of all employees.
+
+SELECT SUM(salary) AS total_salary
+FROM Employee;
+
+
+-- Question 17:
+-- Select the average salary of employees.
+
+SELECT AVG(salary) AS average_salary
+FROM Employee;
+
+
+-- Question 18:
+-- Select the minimum salary in the Employee table.
+
+SELECT MIN(salary) AS minimum_salary
+FROM Employee;
+
+
+-- Question 19:
+-- Select the number of employees in each department.
+
+SELECT department_id, COUNT(*) AS employee_count
+FROM Employee
+GROUP BY department_id;
+
+
+-- Question 20:
+-- Select the average salary of employees in each department.
+
+SELECT department_id, AVG(salary) AS average_salary
+FROM Employee
+GROUP BY department_id;
