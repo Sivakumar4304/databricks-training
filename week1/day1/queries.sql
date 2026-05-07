@@ -390,3 +390,76 @@ WHERE salary >
     SELECT AVG(salary)
     FROM Employee
 );
+
+-- =========================================
+-- Nested Queries
+-- =========================================
+
+-- Question 46:
+-- Select employees working in the HR department.
+
+SELECT *
+FROM Employee
+WHERE department_id =
+(
+    SELECT department_id
+    FROM Department
+    WHERE name = 'HR'
+);
+
+
+-- Question 47:
+-- Select employees whose salary is equal to the maximum salary.
+
+SELECT *
+FROM Employee
+WHERE salary =
+(
+    SELECT MAX(salary)
+    FROM Employee
+);
+
+
+-- Question 48:
+-- Select departments having more employees than the average employee count.
+
+SELECT department_id,
+COUNT(*) AS employee_count
+FROM Employee
+GROUP BY department_id
+HAVING COUNT(*) >
+(
+    SELECT AVG(emp_count)
+    FROM
+    (
+        SELECT COUNT(*) AS emp_count
+        FROM Employee
+        GROUP BY department_id
+    ) AS dept_counts
+);
+
+
+-- Question 49:
+-- Select employees hired before the earliest employee in department 4.
+
+SELECT *
+FROM Employee
+WHERE hire_date <
+(
+    SELECT MIN(hire_date)
+    FROM Employee
+    WHERE department_id = 4
+);
+
+
+-- Question 50:
+-- Select employees whose salary is greater than the average salary of their department.
+
+SELECT *
+FROM Employee e
+WHERE salary >
+(
+    SELECT AVG(salary)
+    FROM Employee
+    WHERE department_id = e.department_id
+);
