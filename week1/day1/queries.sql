@@ -247,3 +247,90 @@ SELECT department_id, MAX(salary) AS max_salary
 FROM Employee
 GROUP BY department_id
 HAVING MAX(salary) > 75000;
+
+-- =========================================
+-- Order By Queries
+-- =========================================
+
+-- Question 31:
+-- Select all employees ordered by salary in ascending order.
+
+SELECT * FROM Employee
+ORDER BY salary ASC;
+
+
+-- Question 32:
+-- Select all employees ordered by age in descending order.
+
+SELECT * FROM Employee
+ORDER BY age DESC;
+
+
+-- Question 33:
+-- Select employees ordered by hire date.
+
+SELECT * FROM Employee
+ORDER BY hire_date;
+
+
+-- Question 34:
+-- Select employees ordered by department_id and salary.
+
+SELECT * FROM Employee
+ORDER BY department_id, salary DESC;
+
+
+-- Question 35:
+-- Select the top 3 highest paid employees.
+
+SELECT * FROM Employee
+ORDER BY salary DESC
+LIMIT 3;
+
+
+-- =========================================
+-- Join Queries
+-- =========================================
+
+-- Question 36:
+-- Select employee names along with their department names.
+
+SELECT e.name AS employee_name,
+d.name AS department_name
+FROM Employee e
+JOIN Department d
+ON e.department_id = d.department_id;
+
+
+-- Question 37:
+-- Select all projects along with their department names.
+
+SELECT p.name AS project_name,
+d.name AS department_name
+FROM Project p
+JOIN Department d
+ON p.department_id = d.department_id;
+
+
+-- Question 38:
+-- Select employees and projects belonging to the same department.
+
+SELECT e.name AS employee_name,
+p.name AS project_name
+FROM Employee e
+JOIN Project p
+ON e.department_id = p.department_id;
+
+
+-- Question 39:
+-- Select employees who do not belong to any department.
+
+SELECT * FROM Employee
+WHERE department_id IS NULL;
+
+
+-- Question 40:
+-- Select projects that do not belong to any department.
+
+SELECT * FROM Project
+WHERE department_id IS NULL;
