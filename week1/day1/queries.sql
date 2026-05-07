@@ -334,3 +334,59 @@ WHERE department_id IS NULL;
 
 SELECT * FROM Project
 WHERE department_id IS NULL;
+
+-- =========================================
+-- Advanced Join Queries
+-- =========================================
+
+-- Question 41:
+-- Select employee names and their department names using LEFT JOIN.
+
+SELECT e.name AS employee_name,
+d.name AS department_name
+FROM Employee e
+LEFT JOIN Department d
+ON e.department_id = d.department_id;
+
+
+-- Question 42:
+-- Select all departments and their employees.
+
+SELECT d.name AS department_name,
+e.name AS employee_name
+FROM Department d
+LEFT JOIN Employee e
+ON d.department_id = e.department_id;
+
+
+-- Question 43:
+-- Select department names and the number of employees in each department.
+
+SELECT d.name AS department_name,
+COUNT(e.emp_id) AS employee_count
+FROM Department d
+LEFT JOIN Employee e
+ON d.department_id = e.department_id
+GROUP BY d.name;
+
+
+-- Question 44:
+-- Select project names and the employees working in the same department.
+
+SELECT p.name AS project_name,
+e.name AS employee_name
+FROM Project p
+JOIN Employee e
+ON p.department_id = e.department_id;
+
+
+-- Question 45:
+-- Select employees earning more than the average salary.
+
+SELECT *
+FROM Employee
+WHERE salary >
+(
+    SELECT AVG(salary)
+    FROM Employee
+);
