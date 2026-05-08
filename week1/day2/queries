@@ -1,13 +1,3 @@
--- =====================================================
--- SQL Practice - Day 2
--- Employee Table Queries (1 - 20)
--- =====================================================
-
-
--- =====================================================
--- SELECT Queries
--- =====================================================
-
 -- Question 1:
 -- Display all employee details.
 
@@ -43,10 +33,6 @@ WHERE department = 'IT';
 SELECT emp_name, experience
 FROM Employees;
 
-
--- =====================================================
--- WHERE Queries
--- =====================================================
 
 -- Question 6:
 -- Find employees with salary greater than 70000.
@@ -87,10 +73,6 @@ SELECT *
 FROM Employees
 WHERE salary = 52000;
 
-
--- =====================================================
--- GROUP BY Queries
--- =====================================================
 
 -- Question 11:
 -- Find total salary department-wise.
@@ -136,10 +118,6 @@ MIN(experience) AS min_experience
 FROM Employees
 GROUP BY department;
 
-
--- =====================================================
--- HAVING Queries
--- =====================================================
 
 -- Question 16:
 -- Find departments having more than 3 employees.
@@ -189,3 +167,288 @@ MAX(salary) AS max_salary
 FROM Employees
 GROUP BY department
 HAVING MAX(salary) > 90000;
+
+
+-- Question 21:
+-- Display top 5 highest paid employees.
+
+SELECT *
+FROM Employees
+ORDER BY salary DESC
+LIMIT 5;
+
+
+-- Question 22:
+-- Display top 3 employees with highest experience.
+
+SELECT *
+FROM Employees
+ORDER BY experience DESC
+LIMIT 3;
+
+
+-- Question 23:
+-- Display top 2 salaries from Finance department.
+
+SELECT *
+FROM Employees
+WHERE department = 'Finance'
+ORDER BY salary DESC
+LIMIT 2;
+
+
+-- Question 24:
+-- Display top 4 employees from Hyderabad.
+
+SELECT *
+FROM Employees
+WHERE city = 'Hyderabad'
+ORDER BY experience DESC
+LIMIT 4;
+
+
+-- Question 25:
+-- Display top 1 highest salary employee.
+
+SELECT *
+FROM Employees
+ORDER BY salary DESC
+LIMIT 1;
+
+-- Question 26:
+-- Display distinct department names.
+
+SELECT DISTINCT department
+FROM Employees;
+
+
+-- Question 27:
+-- Display distinct city names.
+
+SELECT DISTINCT city
+FROM Employees;
+
+
+-- Question 28:
+-- Display distinct salary values.
+
+SELECT DISTINCT salary
+FROM Employees;
+
+
+-- Question 29:
+-- Display distinct combinations of department and city.
+
+SELECT DISTINCT department, city
+FROM Employees;
+
+
+-- Question 30:
+-- Display distinct experience values.
+
+SELECT DISTINCT experience
+FROM Employees;
+
+
+-- Question 31:
+-- Find employees with salary >= 80000.
+
+SELECT *
+FROM Employees
+WHERE salary >= 80000;
+
+
+-- Question 32:
+-- Find employees with experience <= 3.
+
+SELECT *
+FROM Employees
+WHERE experience <= 3;
+
+
+-- Question 33:
+-- Find employees whose salary <> 45000.
+
+SELECT *
+FROM Employees
+WHERE salary <> 45000;
+
+
+-- Question 34:
+-- Find employees with salary < 50000.
+
+SELECT *
+FROM Employees
+WHERE salary < 50000;
+
+
+-- Question 35:
+-- Find employees with experience > 5.
+
+SELECT *
+FROM Employees
+WHERE experience > 5;
+
+
+-- Question 36:
+-- Find employees from IT department AND salary greater than 70000.
+
+SELECT *
+FROM Employees
+WHERE department = 'IT'
+AND salary > 70000;
+
+
+-- Question 37:
+-- Find employees from Hyderabad OR Bangalore.
+
+SELECT *
+FROM Employees
+WHERE city = 'Hyderabad'
+OR city = 'Bangalore';
+
+
+-- Question 38:
+-- Find employees from HR department AND experience less than 3.
+
+SELECT *
+FROM Employees
+WHERE department = 'HR'
+AND experience < 3;
+
+
+-- Question 39:
+-- Find employees with salary greater than 60000 OR experience greater than 6.
+
+SELECT *
+FROM Employees
+WHERE salary > 60000
+OR experience > 6;
+
+
+-- Question 40:
+-- Find employees NOT from Sales department.
+
+SELECT *
+FROM Employees
+WHERE department <> 'Sales';
+
+
+-- Question 41:
+-- Find employees working in ('Hyderabad', 'Mumbai').
+
+SELECT *
+FROM Employees
+WHERE city IN ('Hyderabad', 'Mumbai');
+
+
+-- Question 42:
+-- Find employees whose department IN ('IT', 'Finance').
+
+SELECT *
+FROM Employees
+WHERE department IN ('IT', 'Finance');
+
+
+-- Question 43:
+-- Find employees whose city NOT IN ('Chennai', 'Pune').
+
+SELECT *
+FROM Employees
+WHERE city NOT IN ('Chennai', 'Pune');
+
+
+-- Question 44:
+-- Find employees whose salary IN (45000, 75000, 91000).
+
+SELECT *
+FROM Employees
+WHERE salary IN (45000, 75000, 91000);
+
+
+-- Question 45:
+-- Find employees whose department NOT IN ('HR', 'Sales').
+
+SELECT *
+FROM Employees
+WHERE department NOT IN ('HR', 'Sales');
+
+
+-- Question 46:
+-- Find employees with salary BETWEEN 50000 AND 80000.
+
+SELECT *
+FROM Employees
+WHERE salary BETWEEN 50000 AND 80000;
+
+
+-- Question 47:
+-- Find employees with experience BETWEEN 3 AND 6.
+
+SELECT *
+FROM Employees
+WHERE experience BETWEEN 3 AND 6;
+
+
+-- Question 48:
+-- Find employees whose emp_id BETWEEN 105 AND 112.
+
+SELECT *
+FROM Employees
+WHERE emp_id BETWEEN 105 AND 112;
+
+
+-- Question 49:
+-- Find employees with salary NOT BETWEEN 40000 AND 60000.
+
+SELECT *
+FROM Employees
+WHERE salary NOT BETWEEN 40000 AND 60000;
+
+
+-- Question 50:
+-- Find employees with experience BETWEEN 2 AND 4.
+
+SELECT *
+FROM Employees
+WHERE experience BETWEEN 2 AND 4;
+
+
+-- Question 51:
+-- Find employees whose names start with 'R'.
+
+SELECT *
+FROM Employees
+WHERE emp_name LIKE 'R%';
+
+
+-- Question 52:
+-- Find employees whose names end with 'a'.
+
+SELECT *
+FROM Employees
+WHERE emp_name LIKE '%a';
+
+
+-- Question 53:
+-- Find employees whose names contain 'v'.
+
+SELECT *
+FROM Employees
+WHERE emp_name LIKE '%v%';
+
+
+-- Question 54:
+-- Find employees whose city starts with 'B'.
+
+SELECT *
+FROM Employees
+WHERE city LIKE 'B%';
+
+
+-- Question 55:
+-- Find employees whose department ends with 's'.
+
+SELECT *
+FROM Employees
+WHERE department LIKE '%s';
