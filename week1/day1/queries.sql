@@ -576,3 +576,24 @@ FROM Department;
 
 SELECT salary AS monthly_salary
 FROM Employee;
+
+-- =========================================
+-- Combined Queries
+-- =========================================
+
+-- Question 64:
+-- Select employees from IT department with salary greater than 50000.
+
+SELECT *
+FROM Employee
+WHERE department_id = 1
+AND salary > 50000;
+
+
+-- Question 65:
+-- Select employees whose names start with 'A' and age is less than 30.
+
+SELECT *
+FROM Employee
+WHERE name LIKE 'A%'
+AND age < 30;
