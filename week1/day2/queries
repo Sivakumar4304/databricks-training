@@ -1,1 +1,191 @@
+-- =====================================================
+-- SQL Practice - Day 2
+-- Employee Table Queries (1 - 20)
+-- =====================================================
 
+
+-- =====================================================
+-- SELECT Queries
+-- =====================================================
+
+-- Question 1:
+-- Display all employee details.
+
+SELECT *
+FROM Employees;
+
+
+-- Question 2:
+-- Display only employee names and salaries.
+
+SELECT emp_name, salary
+FROM Employees;
+
+
+-- Question 3:
+-- Display employee names and departments.
+
+SELECT emp_name, department
+FROM Employees;
+
+
+-- Question 4:
+-- Display all employees from the IT department.
+
+SELECT *
+FROM Employees
+WHERE department = 'IT';
+
+
+-- Question 5:
+-- Display employee names and experience.
+
+SELECT emp_name, experience
+FROM Employees;
+
+
+-- =====================================================
+-- WHERE Queries
+-- =====================================================
+
+-- Question 6:
+-- Find employees with salary greater than 70000.
+
+SELECT *
+FROM Employees
+WHERE salary > 70000;
+
+
+-- Question 7:
+-- Find employees working in Hyderabad.
+
+SELECT *
+FROM Employees
+WHERE city = 'Hyderabad';
+
+
+-- Question 8:
+-- Find employees with experience less than 4 years.
+
+SELECT *
+FROM Employees
+WHERE experience < 4;
+
+
+-- Question 9:
+-- Find employees from Finance department.
+
+SELECT *
+FROM Employees
+WHERE department = 'Finance';
+
+
+-- Question 10:
+-- Find employees whose salary is equal to 52000.
+
+SELECT *
+FROM Employees
+WHERE salary = 52000;
+
+
+-- =====================================================
+-- GROUP BY Queries
+-- =====================================================
+
+-- Question 11:
+-- Find total salary department-wise.
+
+SELECT department,
+SUM(salary) AS total_salary
+FROM Employees
+GROUP BY department;
+
+
+-- Question 12:
+-- Find average salary in each department.
+
+SELECT department,
+AVG(salary) AS avg_salary
+FROM Employees
+GROUP BY department;
+
+
+-- Question 13:
+-- Count employees in each city.
+
+SELECT city,
+COUNT(*) AS employee_count
+FROM Employees
+GROUP BY city;
+
+
+-- Question 14:
+-- Find maximum salary in each department.
+
+SELECT department,
+MAX(salary) AS max_salary
+FROM Employees
+GROUP BY department;
+
+
+-- Question 15:
+-- Find minimum experience department-wise.
+
+SELECT department,
+MIN(experience) AS min_experience
+FROM Employees
+GROUP BY department;
+
+
+-- =====================================================
+-- HAVING Queries
+-- =====================================================
+
+-- Question 16:
+-- Find departments having more than 3 employees.
+
+SELECT department,
+COUNT(*) AS emp_count
+FROM Employees
+GROUP BY department
+HAVING COUNT(*) > 3;
+
+
+-- Question 17:
+-- Find departments where average salary is greater than 60000.
+
+SELECT department,
+AVG(salary) AS avg_salary
+FROM Employees
+GROUP BY department
+HAVING AVG(salary) > 60000;
+
+
+-- Question 18:
+-- Find cities having more than 2 employees.
+
+SELECT city,
+COUNT(*) AS city_count
+FROM Employees
+GROUP BY city
+HAVING COUNT(*) > 2;
+
+
+-- Question 19:
+-- Find departments where total salary is greater than 200000.
+
+SELECT department,
+SUM(salary) AS total_salary
+FROM Employees
+GROUP BY department
+HAVING SUM(salary) > 200000;
+
+
+-- Question 20:
+-- Find departments where maximum salary is above 90000.
+
+SELECT department,
+MAX(salary) AS max_salary
+FROM Employees
+GROUP BY department
+HAVING MAX(salary) > 90000;
