@@ -552,3 +552,27 @@ SELECT *
 FROM Employee
 ORDER BY salary ASC
 LIMIT 3;
+
+-- =========================================
+-- Alias Queries
+-- =========================================
+
+-- Question 61:
+-- Select employee names with alias employee_name.
+
+SELECT name AS employee_name
+FROM Employee;
+
+
+-- Question 62:
+-- Select department names with alias dept_name.
+
+SELECT name AS dept_name
+FROM Department;
+
+
+-- Question 63:
+-- Select salary with alias monthly_salary.
+
+SELECT salary AS monthly_salary
+FROM Employee;
