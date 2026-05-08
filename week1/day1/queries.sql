@@ -463,3 +463,92 @@ WHERE salary >
     FROM Employee
     WHERE department_id = e.department_id
 );
+
+-- =========================================
+-- Additional SQL Practice Queries
+-- =========================================
+
+-- Question 51:
+-- Select all employees whose salary is between 50000 and 70000.
+
+SELECT *
+FROM Employee
+WHERE salary BETWEEN 50000 AND 70000;
+
+
+-- Question 52:
+-- Select employees whose age is not between 25 and 35.
+
+SELECT *
+FROM Employee
+WHERE age NOT BETWEEN 25 AND 35;
+
+
+-- Question 53:
+-- Select all employees whose department_id is either 1 or 3.
+
+SELECT *
+FROM Employee
+WHERE department_id IN (1, 3);
+
+
+-- Question 54:
+-- Select employees whose department_id is not 2.
+
+SELECT *
+FROM Employee
+WHERE department_id <> 2;
+
+
+-- Question 55:
+-- Select all employees with NULL department_id.
+
+SELECT *
+FROM Employee
+WHERE department_id IS NULL;
+
+
+-- =========================================
+-- DISTINCT Queries
+-- =========================================
+
+-- Question 56:
+-- Select distinct department IDs from Employee table.
+
+SELECT DISTINCT department_id
+FROM Employee;
+
+
+-- Question 57:
+-- Select distinct salaries from Employee table.
+
+SELECT DISTINCT salary
+FROM Employee;
+
+
+-- Question 58:
+-- Select distinct hire years from Employee table.
+
+SELECT DISTINCT YEAR(hire_date) AS hire_year
+FROM Employee;
+
+
+-- =========================================
+-- LIMIT Queries
+-- =========================================
+
+-- Question 59:
+-- Select first 5 employees from Employee table.
+
+SELECT *
+FROM Employee
+LIMIT 5;
+
+
+-- Question 60:
+-- Select 3 employees with lowest salary.
+
+SELECT *
+FROM Employee
+ORDER BY salary ASC
+LIMIT 3;
